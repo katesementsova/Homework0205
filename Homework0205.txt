@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class homework0205 {
+
+    public static void main(String[] args) {
+        canWalk();
+        canBuy();
+        canWork();
+        workTime();
+    }
+    static void canWalk () {
+        boolean isWeekend = true;
+        boolean isRain = false;
+
+        System.out.println(isWeekend^isRain);
+    }
+
+    static void canBuy(){
+        boolean isEdekaOpen = true;
+        boolean isReweOpen = false;
+        boolean canBuy = isEdekaOpen || isReweOpen;
+
+        System.out.println("Я могу купить еду, это " + canBuy);
+    }
+
+    static void canWork() {
+        double temperature1 = 120;
+        double temperature2 = 85;
+        boolean canWorkOne = temperature1 > 100;
+        boolean canWorkTwo = temperature2 < 100;
+        boolean canWork = canWorkOne && canWorkTwo;
+
+        System.out.println(canWork);
+
+    }
+
+    static void workTime() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Какое число Вы видите на таймере (от 0 до 28800) ?");
+        int howMuchSeconds = scanner.nextInt();
+        int howMuchHours = howMuchSeconds / 3600;
+
+        System.out.println("До конца рабочего дня осталось " + howMuchSeconds + " " + "секунд, что соответствует " + howMuchHours + " " + "полным часам");
+     if (howMuchHours <= 8 && howMuchHours >= 5) {
+         System.out.println("Рабочий день в самом разгаре!");
+     } else if (howMuchHours < 5 && howMuchHours >= 3) {
+         System.out.println("Не помешает перерыв на обед");
+     } else if (howMuchHours < 3 && howMuchHours > 0) {
+         System.out.println("Ещё немного поработаем");
+     } else if (howMuchHours == 0) {
+         System.out.println("Рабочий день окончен!"); }
+    }
+}
